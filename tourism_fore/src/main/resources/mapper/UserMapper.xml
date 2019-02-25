@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tourism.fore.mapper.UserMapper">
+    <!--<select id="findUserByIdAndPwd" parameterType="UserLogin" resultType="UserLogin">-->
+        <!--select * from user where loginPhone=#{loginPhone} and LoginPassword=#{LoginPassword}-->
+    <!--</select>-->
+
+    <select id="findUserByNameAndPwd" parameterType="UserLogin">
+        INSERT INTO  tr_login(loginPhone, loginPasswork) VALUE("${loginPhone}", "${loginPassword}")
+    </select>
+</mapper>
