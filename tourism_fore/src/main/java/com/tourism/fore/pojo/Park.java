@@ -20,7 +20,7 @@ public class Park {
     private String parkIntro;           //景区简介
     private String parkImg;             //景区图片地址
     private String parkWord;            //景区推荐标签
-    private String parkEncode;          //景区位置字符编码
+    private String parkEncode;          //景区位置32编码
 
     /**
      * 新增字段两点距离值 dist
