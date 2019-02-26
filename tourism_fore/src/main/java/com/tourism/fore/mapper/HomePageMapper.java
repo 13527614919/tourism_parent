@@ -8,7 +8,10 @@ import java.util.List;
 @Mapper
 public interface HomePageMapper {
 
-    //首页的周边推荐
+    //首页团日游乐推荐
     List<Park> showLocalList(Park park);
+
+    //周边推荐列表
+    List<Park> showLocalParkList(String parkProvince);
 
 }

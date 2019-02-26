@@ -14,18 +14,21 @@ import java.util.*;
 //@CrossOrigin解决跨域问题
 @RestController
 @CrossOrigin
-@RequestMapping("/tourism/user")
+@RequestMapping("/tourism/home")
 public class HomePageController {
 
     @Autowired
     private HomePageService homePageService;
 
-    //首页周边推荐
-    @RequestMapping(method = RequestMethod.GET)
-    public Result getPerimeter(){
+    //首页团日游乐推荐
+    @RequestMapping(value = "/dayTour", method = RequestMethod.POST)
+    public Result getPerimeter(@RequestBody Park park){
 
-        double lng = Double.parseDouble("113.287879");// 经度坐标
-        double lat = Double.parseDouble("23.112686");// 纬度坐标
+        double lng = Double.parseDouble(park.getParkLng());// 经度坐标
+        double lat = Double.parseDouble(park.getParkLat());// 纬度坐标
+//        double lng = Double.parseDouble("113.287879");// 经度坐标
+//        double lat = Double.parseDouble("23.112686");// 纬度坐标
+        System.out.println("后台" + lng + "--------" + lat);
 
         double lngSql; //从数据库查询的经度
         double latSql; //从数据库查询的纬度
@@ -37,7 +40,7 @@ public class HomePageController {
         String s = geohashUtil.encode(lat, lng);
 
         //从数据库中查询周边景区集合
-        Park park = new Park();
+        park = new Park();
         park.setParkEncode(s.substring(0,4).concat("%"));
 
         //将list集合的数据，向上强转，为数组集合
@@ -73,6 +76,18 @@ public class HomePageController {
                 StatusCode.OK,
                 "查询成功",
                 arrList.subList(0,3));
+    }
+
+    //首页周边推荐
+    @RequestMapping(value = "/localTour/{parkProvince}", method = RequestMethod.GET)
+    public Result getLocalPark(@PathVariable String parkProvince) {
+        parkProvince = parkProvince.concat("%");
+        System.out.println("oiweurouwoejr237489759" + parkProvince);
+        return new Result(
+                true,
+                StatusCode.OK,
+                "查询成功",
+                homePageService.showLocalParkList(parkProvince));
     }
 
 }

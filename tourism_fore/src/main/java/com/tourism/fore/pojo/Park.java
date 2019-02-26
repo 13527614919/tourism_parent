@@ -28,12 +28,26 @@ public class Park {
      */
     private int dist;
 
+    /**
+     * 新增字段景区所在城市 parkCity
+     * @return
+     */
+    private String parkCity;
+
     public int getDist() {
         return dist;
     }
 
     public void setDist(int dist) {
         this.dist = dist;
+    }
+
+    public String getParkCity() {
+        return parkCity;
+    }
+
+    public void setParkCity(String parkCity) {
+        this.parkCity = parkCity;
     }
 
     public String getParkId() {
