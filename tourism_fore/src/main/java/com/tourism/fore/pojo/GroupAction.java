@@ -10,7 +10,7 @@ public class GroupAction {
     private int gcActivePrice;     //产品活动价格
     private String gcFormCity;        //出发地
     private String gcToCity;          //目的地
-    private String gctime;            //出行总时长
+    private String gcTime;            //出行总时长
     private String gcNotice;          //产品购买须知
     private String gcRecommendDescrip;   //产品推荐理由
     private String gcProviderId;      //产品供应商ID
@@ -80,12 +80,12 @@ public class GroupAction {
         this.gcToCity = gcToCity;
     }
 
-    public String getGctime() {
-        return gctime;
+    public String getGcTime() {
+        return gcTime;
     }
 
-    public void setGctime(String gctime) {
-        this.gctime = gctime;
+    public void setGcTime(String gcTime) {
+        this.gcTime = gcTime;
     }
 
     public String getGcNotice() {
